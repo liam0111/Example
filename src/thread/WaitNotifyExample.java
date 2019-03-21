@@ -9,7 +9,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @Author: Liam
  * @Date: 2019/3/20 19:30
  */
-public class BlockingQueue {
+public class WaitNotifyExample {
     //1、需要一个承装元素的集合
     private final LinkedList<Object> list = new LinkedList<>();
     //2、需要一个计数器
@@ -61,7 +61,7 @@ public class BlockingQueue {
     }
 
     public static void main(String[] args) throws Exception {
-        final BlockingQueue blockingQueue = new BlockingQueue();
+        final WaitNotifyExample blockingQueue = new WaitNotifyExample();
         initBlockingQueue(blockingQueue);
 
         Thread t1 = new Thread(() -> {
@@ -85,7 +85,7 @@ public class BlockingQueue {
         t2.start();
     }
 
-    private static void initBlockingQueue(BlockingQueue blockingQueue) {
+    private static void initBlockingQueue(WaitNotifyExample blockingQueue) {
         blockingQueue.put("a");
         blockingQueue.put("b");
         blockingQueue.put("c");
